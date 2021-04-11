@@ -32,7 +32,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/SuratMasuk" class="nav-link">
+                            <a href="<?= base_url() ?>/surat_masuk" class="nav-link">
                                 <i class="fas fa-angle-right nav-icon"></i>
                                 <p>Surat Masuk</p>
                             </a>

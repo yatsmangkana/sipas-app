@@ -14,16 +14,22 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            <div class="flash-data" data-flashdata="<?= session()->getFlashdata('pesan'); ?>"></div>
+            <?php if (session()->getFlashdata('pesan')) : ?>
+                <!-- <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('pesan'); ?>
+                </div> -->
+            <?php endif; ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <!-- Button to Open the Modal -->
+                            <!-- Button -->
                             <a href="/SuratMasuk/create" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover">
+                            <table id="surat_masuk" class="table table-bordered table-hover">
                                 <thead>
                                     <tr class="table-primary">
                                         <th class="text-center" width="1%">No</th>
@@ -48,20 +54,19 @@
                                             <td class="text-center"><?= $sm['tgl_diterima']; ?></td>
                                             <td class="text-center"><?= $sm['keterangan']; ?></td>
                                             <td class="project-actions text-center">
-                                                <a href="surat_masuk.php?downloadFile=asda" target="_blank"><button type="button" class="btn btn-success" name="downloadFile">
-                                                        <i class="fas fa-folder"></i>
-                                                    </button></a>
-                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                </button>
-                                                <form action="/SuratMasuk/<?= $sm['id']; ?>" method="post" class="d-inline">
+                                                <a href="/surat_masuk/<?= $sm['id']; ?>" class="btn btn-success">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <form action="/SuratMasuk/edit/<?= $sm['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="fas fa-trash"></i>
+                                                    <input type="hidden" name="_method" value="">
+                                                    <button type="submit" class="btn btn-warning">
+                                                        <i class="fas fa-pencil-alt"></i>
                                                     </button>
                                                 </form>
+                                                <button type="submit" value="<?= $sm['id']; ?>" class="btn btn-danger hapus">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

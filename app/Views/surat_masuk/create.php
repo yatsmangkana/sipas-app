@@ -23,35 +23,44 @@
                                 <div class="row">
                                     <div class="col">
                                         <label>Nomor Surat :</label>
-                                        <input type="text" name="no_surat" class="form-control <?= ($validation->hasError('no_surat')) ? 'is-invalid' : ''; ?>">
+                                        <input type="text" name="no_surat" class="form-control <?= ($validation->hasError('no_surat')) ? 'is-invalid' : ''; ?>" autofocus value="<?= old('no_surat'); ?>">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('no_surat'); ?>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <label>Tanggal Surat :</label>
-                                        <input type="date" name="tgl_surat" class="form-control <?= ($validation->hasError('tgl_surat')) ? 'is-invalid' : ''; ?>">
+                                        <input type="date" name="tgl_surat" class="form-control <?= ($validation->hasError('tgl_surat')) ? 'is-invalid' : ''; ?>" autofocus value="<?= old('tgl_surat'); ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('tgl_surat'); ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col">
                                         <label>Perihal :</label>
-                                        <input type="text" name="perihal" class="form-control <?= ($validation->hasError('perihal')) ? 'is-invalid' : ''; ?>">
+                                        <input type="text" name="perihal" class="form-control <?= ($validation->hasError('perihal')) ? 'is-invalid' : ''; ?>" autofocus value="<?= old('perihal'); ?>">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('perihal'); ?>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <label>Tanggal Diterima:</label>
-                                        <input type="date" name="tgl_diterima" class="form-control <?= ($validation->hasError('tgl_diterima')) ? 'is-invalid' : ''; ?>">
+                                        <input type="date" name="tgl_diterima" class="form-control <?= ($validation->hasError('tgl_diterima')) ? 'is-invalid' : ''; ?>" autofocus value="<?= old('tgl_diterima'); ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('tgl_diterima'); ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col">
                                         <label>Asal Surat :</label>
-                                        <input type="text" name="asal_surat" class="form-control <?= ($validation->hasError('asal_surat')) ? 'is-invalid' : ''; ?>">
+                                        <input type="text" name="asal_surat" class="form-control <?= ($validation->hasError('asal_surat')) ? 'is-invalid' : ''; ?>" autofocus value="<?= old('asal_surat'); ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('asal_surat'); ?>
+                                        </div>
                                     </div>
                                     <div class="col">
                                         <label>Keterangan :</label>
@@ -65,12 +74,16 @@
                                 <br>
                                 <label>Upload File :</label>
                                 <div class="custom-file mb-3">
-                                    <input type="file" class="custom-file-input" id="files" name="files">
-                                    <label class="custom-file-label" for="files">Choose file</label>
+                                    <input type="file" class="custom-file-input <?= ($validation->hasError('files')) ? 'is-invalid' : ''; ?>" id="files" name="files">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('files'); ?>
+                                    </div>
+                                    <label class="custom-file-label" for="files">Pilih file..</label>
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <a href="/surat_masuk" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>

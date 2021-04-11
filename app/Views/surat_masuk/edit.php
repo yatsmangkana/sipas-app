@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Data Surat Masuk</h1>
+                    <h1>Edit Data Surat Masuk</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -18,45 +18,55 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/SuratMasuk/save" method="post" enctype="multipart/form-data">
+                            <form action="/SuratMasuk/update/<?= $suratMasuk['id']; ?>" method="post" enctype="multipart/form-data">
+                                <input type="hidden" class="form-control" name="fileLama" value="<?= $suratMasuk['files']; ?>">
                                 <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col">
                                         <label>Nomor Surat :</label>
-                                        <input type="text" name="no_surat" class="form-control <?= ($validation->hasError('no_surat')) ? 'is-invalid' : ''; ?>">
+                                        <input type="text" name="no_surat" class="form-control <?= ($validation->hasError('no_surat')) ? 'is-invalid' : ''; ?>" autofocus value="<?= (old('no_surat')) ? old('no_surat') : $suratMasuk['no_surat']; ?>">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('no_surat'); ?>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <label>Tanggal Surat :</label>
-                                        <input type="date" name="tgl_surat" class="form-control <?= ($validation->hasError('tgl_surat')) ? 'is-invalid' : ''; ?>">
+                                        <input type="date" name="tgl_surat" class="form-control <?= ($validation->hasError('tgl_surat')) ? 'is-invalid' : ''; ?>" autofocus value="<?= (old('tgl_surat')) ? old('tgl_surat') : $suratMasuk['tgl_surat']; ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('tgl_surat'); ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col">
                                         <label>Perihal :</label>
-                                        <input type="text" name="perihal" class="form-control <?= ($validation->hasError('perihal')) ? 'is-invalid' : ''; ?>">
+                                        <input type="text" name="perihal" class="form-control <?= ($validation->hasError('perihal')) ? 'is-invalid' : ''; ?>" autofocus value="<?= (old('perihal')) ? old('perihal') : $suratMasuk['perihal']; ?>">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('perihal'); ?>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <label>Tanggal Diterima:</label>
-                                        <input type="date" name="tgl_diterima" class="form-control <?= ($validation->hasError('tgl_diterima')) ? 'is-invalid' : ''; ?>">
+                                        <input type="date" name="tgl_diterima" class="form-control <?= ($validation->hasError('tgl_diterima')) ? 'is-invalid' : ''; ?>" autofocus value="<?= (old('tgl_diterima')) ? old('tgl_diterima') : $suratMasuk['tgl_diterima']; ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('tgl_diterima'); ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col">
                                         <label>Asal Surat :</label>
-                                        <input type="text" name="asal_surat" class="form-control <?= ($validation->hasError('asal_surat')) ? 'is-invalid' : ''; ?>">
+                                        <input type="text" name="asal_surat" class="form-control <?= ($validation->hasError('asal_surat')) ? 'is-invalid' : ''; ?>" autofocus value="<?= (old('asal_surat')) ? old('asal_surat') : $suratMasuk['asal_surat']; ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('asal_surat'); ?>
+                                        </div>
                                     </div>
                                     <div class="col">
                                         <label>Keterangan :</label>
                                         <select name="keterangan" class="custom-select">
-                                            <option selected disabled>Pilih Keterangan</option>
+                                            <option selected disabled autofocus value="<?= $suratMasuk['keterangan']; ?>"><?= $suratMasuk['keterangan']; ?></option>
                                             <option value="AKTIF">AKTIF</option>
                                             <option value="INAKTIF">INAKTIF</option>
                                         </select>
@@ -65,12 +75,16 @@
                                 <br>
                                 <label>Upload File :</label>
                                 <div class="custom-file mb-3">
-                                    <input type="file" class="custom-file-input" id="files" name="files">
-                                    <label class="custom-file-label" for="files">Choose file</label>
+                                    <input type="file" class="custom-file-input <?= ($validation->hasError('files')) ? 'is-invalid' : ''; ?>" id="files" name="files">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('files'); ?>
+                                    </div>
+                                    <label class="custom-file-label" for="files"><?= $suratMasuk['files']; ?></label>
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <a href="/surat_masuk" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
                         </div>

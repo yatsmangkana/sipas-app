@@ -32,8 +32,12 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Dashboard::index');
+$routes->get('/surat_masuk', 'SuratMasuk::index');
 
-$routes->delete('/SuratMasuk/(:num)', 'SuratMasuk::delete/$1');
+$routes->get('/surat_masuk/(:segment)', 'SuratMasuk::detail/$1');
+//$routes->get('/surat_masuk/create', 'SuratMasuk::create');
+$routes->get('/surat_masuk/edit/(:num)', 'SuratMasuk::edit/$1');
+$routes->delete('/surat_masuk/(:num)', 'SuratMasuk::delete/$1');
 
 /*
  * --------------------------------------------------------------------

@@ -25,13 +25,10 @@
 <script src="<?= base_url() ?>/template/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url() ?>/template/dist/js/pages/dashboard.js"></script>
-<script>
-    // Nama File yg di Input
-    $(".custom-file-input").on("change", function() {
-        var fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
-</script>
+<!-- SweetAlert2 -->
+<script src="<?= base_url() ?>/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+<!-- myScript -->
+<script src="<?= base_url() ?>/assets/js/myScript.js"></script>
 
 </body>
 
