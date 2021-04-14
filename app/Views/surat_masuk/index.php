@@ -54,7 +54,7 @@
                                             <td class="text-center"><?= $sm['tgl_diterima']; ?></td>
                                             <td class="text-center"><?= $sm['keterangan']; ?></td>
                                             <td class="project-actions text-center">
-                                                <a href="/surat_masuk/<?= $sm['id']; ?>" class="btn btn-success">
+                                                <a href="/surat_masuk/detail/<?= $sm['id']; ?>" class="btn btn-success">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                                 <form action="/SuratMasuk/edit/<?= $sm['id']; ?>" method="post" class="d-inline">

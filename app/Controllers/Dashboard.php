@@ -8,6 +8,7 @@ class Dashboard extends BaseController
 	{
 		$data = [
 			'title' => 'Dashboard | SIPAS LP2M UNM',
+			'open' => 'active',
 			'content' => 'v_Dashboard',
 		];
 		return view('layout/v_wrapper', $data);

@@ -65,11 +65,10 @@
                                     </div>
                                     <div class="col">
                                         <label>Keterangan :</label>
-                                        <select name="keterangan" class="custom-select">
-                                            <option selected disabled autofocus value="<?= $suratMasuk['keterangan']; ?>"><?= $suratMasuk['keterangan']; ?></option>
-                                            <option value="AKTIF">AKTIF</option>
-                                            <option value="INAKTIF">INAKTIF</option>
-                                        </select>
+                                        <input type="text" name="keterangan" class="form-control <?= ($validation->hasError('keterangan')) ? 'is-invalid' : ''; ?>" autofocus value="<?= (old('keterangan')) ? old('keterangan') : $suratMasuk['keterangan']; ?>">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('keterangan'); ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>

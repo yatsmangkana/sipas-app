@@ -11,6 +11,9 @@ class SuratMasuk extends BaseController
 	public function __construct()
 	{
 		$this->suratMasukModel = new SuratMasukModel();
+
+		$this->data['adminMenu'] = 'kelola-arsip';
+		$this->data['adminSubMenu'] = 'surat-masuk';
 	}
 
 	public function index()
@@ -28,6 +31,14 @@ class SuratMasuk extends BaseController
 	public function detail($id)
 	{
 		$suratMasuk = $this->suratMasukModel->find($id);
+		$data = [
+			'title' => 'Edit Data Surat Masuk',
+			'content' => 'surat_masuk/detail',
+			'suratMasuk' => $suratMasuk
+
+		];
+
+		return view('layout/v_wrapper', $data);
 	}
 
 	public function create()
@@ -98,6 +109,7 @@ class SuratMasuk extends BaseController
 
 		$fileSurat = $this->request->getFile('files');
 		$namaFile = $fileSurat->getName();
+		$ukuranFile = $fileSurat->getSizeByUnit('kb');
 		$namaFileBaru = rand(10, 10000) . '_' . $namaFile;
 		$fileSurat->move('upload/surat_masuk', $namaFileBaru);
 
@@ -108,7 +120,8 @@ class SuratMasuk extends BaseController
 			'tgl_surat' => $this->request->getVar('tgl_surat'),
 			'tgl_diterima' => $this->request->getVar('tgl_diterima'),
 			'keterangan' => $this->request->getVar('keterangan'),
-			'files' => $namaFileBaru
+			'files' => $namaFileBaru,
+			'file_size' => $ukuranFile
 		]);
 
 		session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
@@ -205,6 +218,7 @@ class SuratMasuk extends BaseController
 		$fileSurat = $this->request->getFile('files');
 		$fileLama = $this->request->getVar('fileLama');
 		$getNama = $fileSurat->getName();
+		$ukuranFile = $fileSurat->getSizeByUnit('kb');
 
 		if ($fileSurat->getError() == 4) {
 			$namaFile = $fileLama;
@@ -222,7 +236,8 @@ class SuratMasuk extends BaseController
 			'tgl_surat' => $this->request->getVar('tgl_surat'),
 			'tgl_diterima' => $this->request->getVar('tgl_diterima'),
 			'keterangan' => $this->request->getVar('keterangan'),
-			'files' => $namaFile
+			'files' => $namaFile,
+			'file_size' => $ukuranFile
 		]);
 
 		session()->setFlashdata('pesan', 'Data berhasil diubah.');
