@@ -20,7 +20,7 @@ class SuratMasuk extends BaseController
 	{
 		$suratMasuk = $this->suratMasukModel->findAll();
 		$data = [
-			'title' => 'Dashboard | SIPAS LP2M UNM',
+			'title' => 'Kelola Surat Masuk',
 			'content' => 'surat_masuk/index',
 			'suratMasuk' => $suratMasuk,
 		];
@@ -94,12 +94,12 @@ class SuratMasuk extends BaseController
 				]
 			],
 			'files' => [
-				'rules' => 'uploaded[files]|max_size[files,1024]|ext_in[files,png,jpg,jpeg,doc,docx,pdf]|mime_in[files,image/png,image/jpeg,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document]',
+				'rules' => 'uploaded[files]|max_size[files,1024]|ext_in[files,doc,docx,pdf]|mime_in[files,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document]',
 				'errors' => [
 					'uploaded' => 'Pilih file terlebih dahulu!',
 					'max_size' => 'Ukuran file terlalu besar! *Max 1MB',
-					'ext_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf, .png, .jpg',
-					'mime_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf, .png, .jpg'
+					'ext_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf',
+					'mime_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf'
 				]
 			],
 		])) {
@@ -202,12 +202,11 @@ class SuratMasuk extends BaseController
 				],
 			],
 			'files' => [
-				'rules' => 'max_size[files,1024]|ext_in[files,png,jpg,jpeg,doc,docx,pdf]|mime_in[files,image/png,image/jpeg,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document]',
+				'rules' => 'max_size[files,1024]|ext_in[files,doc,docx,pdf]|mime_in[files,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document]',
 				'errors' => [
-					//'uploaded' => 'Pilih file terlebih dahulu!',
 					'max_size' => 'Ukuran file terlalu besar! *Max 1MB',
-					'ext_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf, .png, .jpg',
-					'mime_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf, .png, .jpg'
+					'ext_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf',
+					'mime_in' => 'Extensi file tidak diijinkan! *.doc, .docx, .pdf'
 				]
 			],
 		])) {

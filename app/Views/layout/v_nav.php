@@ -38,7 +38,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/pages/v_SuratKeluar.php" class="nav-link">
+                            <a href="<?= base_url() ?>/surat_keluar" class="nav-link">
                                 <i class="fas fa-angle-right nav-icon"></i>
                                 <p>Surat Keluar</p>
                             </a>
@@ -47,9 +47,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-print"></i>
                         <p>
-                            Agenda
+                            Cetak Laporan
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -62,29 +62,6 @@
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">
-                                <i class="fas fa-angle-right nav-icon"></i>
-                                <p>Surat Keluar</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>
-                            Gallery File
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
-                                <i class="fas fa-angle-right nav-icon"></i>
-                                <p>Surat Masuk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/icons.html" class="nav-link">
                                 <i class="fas fa-angle-right nav-icon"></i>
                                 <p>Surat Keluar</p>
                             </a>

@@ -33,11 +33,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Dashboard::index');
 $routes->get('/surat_masuk', 'SuratMasuk::index');
+$routes->get('/surat_keluar', 'SuratKeluar::index');
 
-$routes->get('/surat_masuk/detail/(:segment)', 'SuratMasuk::detail/$1');
+//$routes->get('/surat_masuk/detail/(:segment)', 'SuratMasuk::detail/$1');
 //$routes->get('/surat_masuk/create', 'SuratMasuk::create');
-$routes->get('/surat_masuk/edit/(:num)', 'SuratMasuk::edit/$1');
+//$routes->get('/surat_masuk/edit/(:num)', 'SuratMasuk::edit/$1');
 $routes->delete('/surat_masuk/(:num)', 'SuratMasuk::delete/$1');
+$routes->delete('/surat_keluar/(:num)', 'SuratKeluar::delete/$1');
 
 /*
  * --------------------------------------------------------------------
