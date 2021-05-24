@@ -35,7 +35,7 @@
 
                                     <th>Tgl Upload</th>
                                     <th>:</th>
-                                    <td><?= $suratMasuk['created_at']; ?></td>
+                                    <td><?= date('d / m / Y H:i:s A', strtotime($suratMasuk['created_at'])); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Asal Surat</th>
@@ -44,12 +44,12 @@
 
                                     <th>Tgl Update</th>
                                     <th>:</th>
-                                    <td><?= $suratMasuk['updated_at']; ?></td>
+                                    <td><?= date('d / m / Y H:i:s A', strtotime($suratMasuk['updated_at'])); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Tgl Surat</th>
                                     <th>:</th>
-                                    <td><?= $suratMasuk['tgl_surat']; ?></td>
+                                    <td><?= date('d / m / Y', strtotime($suratMasuk['tgl_surat'])); ?></td>
 
                                     <th>File Surat</th>
                                     <th>:</th>
@@ -58,7 +58,7 @@
                                 <tr>
                                     <th>Tgl Diterima</th>
                                     <th>:</th>
-                                    <td><?= $suratMasuk['tgl_diterima']; ?></td>
+                                    <td><?= date('d / m / Y', strtotime($suratMasuk['tgl_diterima'])); ?></td>
 
                                     <th>Ukuran File</th>
                                     <th>:</th>

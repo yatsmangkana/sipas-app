@@ -2,28 +2,25 @@
 
 namespace App\Controllers;
 
-use App\Models\SuratMasukModel;
-
-class SuratMasuk extends BaseController
+class surat_masuk extends BaseController
 {
 
-	protected $suratMasukModel;
-	public function __construct()
-	{
-		$this->suratMasukModel = new SuratMasukModel();
-
-		$this->data['adminMenu'] = 'kelola-arsip';
-		$this->data['adminSubMenu'] = 'surat-masuk';
-	}
+	// public function __construct()
+	// {
+	// }
 
 	public function index()
 	{
 		$suratMasuk = $this->suratMasukModel->findAll();
+		$rows = $this->suratMasukModel->countAll();
 		$data = [
 			'title' => 'Kelola Surat Masuk',
 			'content' => 'surat_masuk/index',
 			'suratMasuk' => $suratMasuk,
+			'uri' => $this->uri->getSegment(1),
 		];
+
+		//dd($rows);
 
 		return view('layout/v_wrapper', $data);
 	}
@@ -34,7 +31,8 @@ class SuratMasuk extends BaseController
 		$data = [
 			'title' => 'Edit Data Surat Masuk',
 			'content' => 'surat_masuk/detail',
-			'suratMasuk' => $suratMasuk
+			'suratMasuk' => $suratMasuk,
+			'uri' => $this->uri->getSegment(1)
 
 		];
 
@@ -46,6 +44,7 @@ class SuratMasuk extends BaseController
 		$data = [
 			'title' => 'Tambah Surat Masuk',
 			'content' => 'surat_masuk/create',
+			'uri' => $this->uri->getSegment(1),
 			'validation' => \Config\Services::validation()
 		];
 
@@ -104,7 +103,7 @@ class SuratMasuk extends BaseController
 			],
 		])) {
 
-			return redirect()->to('/SuratMasuk/create')->withInput();
+			return redirect()->to('/surat_masuk/create')->withInput();
 		}
 
 		$fileSurat = $this->request->getFile('files');
@@ -146,7 +145,8 @@ class SuratMasuk extends BaseController
 			'title' => 'Edit Data Surat Masuk',
 			'content' => 'surat_masuk/edit',
 			'validation' => \Config\Services::validation(),
-			'suratMasuk' => $suratMasuk
+			'suratMasuk' => $suratMasuk,
+			'uri' => $this->uri->getSegment(1)
 
 		];
 
@@ -242,5 +242,18 @@ class SuratMasuk extends BaseController
 		session()->setFlashdata('pesan', 'Data berhasil diubah.');
 
 		return redirect()->to('/surat_masuk');
+	}
+
+	public function laporan()
+	{
+		$suratMasuk = $this->suratMasukModel->findAll();
+		$data = [
+			'title' => 'Kelola Surat Masuk',
+			'content' => 'surat_masuk/laporan',
+			'suratMasuk' => $suratMasuk,
+			'uri' => $this->uri->getSegment(1),
+		];
+
+		return view('layout/v_wrapper', $data);
 	}
 }

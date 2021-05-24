@@ -40,7 +40,7 @@
 <script src="template/plugins/pdfmake/pdfmake.min.js"></script>
 <script src="template/plugins/pdfmake/vfs_fonts.js"></script>
 <script src="template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="template/plugins/datatables-buttons/js/buttons.print.js"></script>
 <script src="template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 </body>

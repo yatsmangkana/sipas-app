@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Surat Masuk</h1>
+                    <h1>Arsip Surat Masuk</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -25,7 +25,7 @@
                     <div class="card">
                         <div class="card-header">
                             <!-- Button -->
-                            <a href="/SuratMasuk/create" class="btn btn-primary">Tambah Data</a>
+                            <a href="/surat_masuk/create" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -37,8 +37,9 @@
                                         <th class="text-center">Perihal</th>
                                         <th class="text-center">Asal Surat</th>
                                         <th class="text-center">Tgl Surat</th>
-                                        <th class="text-center">Tgl Keluar</th>
+                                        <th class="text-center">Tgl Diterima</th>
                                         <th class="text-center">Keterangan</th>
+                                        <th class="text-center">Detail</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -50,28 +51,27 @@
                                             <td class="text-center"><?= $sm['no_surat']; ?></td>
                                             <td class="text-center"><?= $sm['perihal']; ?></td>
                                             <td class="text-center"><?= $sm['asal_surat']; ?></td>
-                                            <td class="text-center"><?= $sm['tgl_surat']; ?></td>
-                                            <td class="text-center"><?= $sm['tgl_diterima']; ?></td>
+                                            <td class="text-center"><?= date('d / m / Y', strtotime($sm['tgl_surat'])); ?></td>
+                                            <td class="text-center"><?= date('d / m / Y', strtotime($sm['tgl_diterima'])); ?></td>
                                             <td class="text-center"><?= $sm['keterangan']; ?></td>
-                                            <td class="project-actions text-center">
-                                                <!-- <a href="/surat_masuk/detail/<?= $sm['id']; ?>" class="btn btn-success">
-                                                    <i class="fas fa-eye"></i>
-                                                </a> -->
-                                                <form action="/SuratMasuk/detail/<?= $sm['id']; ?>" method="post" class="d-inline">
+                                            <td class="project-detail text-center">
+                                                <form action="/surat_masuk/detail/<?= $sm['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="">
                                                     <button type="submit" class="btn btn-success">
-                                                        <i class="fas fa-eye"></i>
+                                                        <i class="fas fa-download"></i>
                                                     </button>
                                                 </form>
-                                                <form action="/SuratMasuk/edit/<?= $sm['id']; ?>" method="post" class="d-inline">
+                                            </td>
+                                            <td class="project-actions text-center">
+                                                <form action="/surat_masuk/edit/<?= $sm['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="">
                                                     <button type="submit" class="btn btn-warning">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </button>
                                                 </form>
-                                                <button type="submit" value="<?= $sm['id']; ?>" class="btn btn-danger hapus">
+                                                <button type="submit" value="<?= $sm['id']; ?>" class="btn btn-danger hapus_sm">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </td>
@@ -94,3 +94,28 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<!-- Arsip
+Surat Masuk :
+- No Surat
+- Pengirim
+- Perihal
+- Tanggal Surat
+- Tanggal Masuk
+
+Surat Masuk :
+- No Surat
+- Tujuan
+- Perihal
+- Tanggal Surat
+
+Surat Tugas :
+
+Perihal Surat :
+- Surat Izin Penelitian
+- Surat Keterangan
+- Surat Tugas
+- Surat Undangan
+- Sertifikat
+
+No. Surat : 'no-urut'/UN36.11/LP2M/'tahun' -->

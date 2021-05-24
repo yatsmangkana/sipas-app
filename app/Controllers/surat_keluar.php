@@ -2,19 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\SuratKeluarModel;
-
-class SuratKeluar extends BaseController
+class surat_keluar extends BaseController
 {
-
-    protected $suratKeluarModel;
-    public function __construct()
-    {
-        $this->suratKeluarModel = new SuratKeluarModel();
-
-        $this->data['adminMenu'] = 'kelola-arsip';
-        $this->data['adminSubMenu'] = 'surat-keluar';
-    }
 
     public function index()
     {
@@ -23,6 +12,7 @@ class SuratKeluar extends BaseController
             'title' => 'Kelola Surat Keluar',
             'content' => 'surat_keluar/index',
             'suratKeluar' => $suratKeluar,
+            'uri' => $this->uri->getSegment(1)
         ];
 
         return view('layout/v_wrapper', $data);
@@ -34,7 +24,8 @@ class SuratKeluar extends BaseController
         $data = [
             'title' => 'Edit Data Surat Keluar',
             'content' => 'surat_keluar/detail',
-            'suratKeluar' => $suratKeluar
+            'suratKeluar' => $suratKeluar,
+            'uri' => $this->uri->getSegment(1)
 
         ];
 
@@ -46,6 +37,7 @@ class SuratKeluar extends BaseController
         $data = [
             'title' => 'Tambah Surat Keluar',
             'content' => 'surat_keluar/create',
+            'uri' => $this->uri->getSegment(1),
             'validation' => \Config\Services::validation()
         ];
 
@@ -104,7 +96,7 @@ class SuratKeluar extends BaseController
             ],
         ])) {
 
-            return redirect()->to('/SuratKeluar/create')->withInput();
+            return redirect()->to('/surat_keluar/create')->withInput();
         }
 
         $fileSurat = $this->request->getFile('files');
@@ -146,7 +138,8 @@ class SuratKeluar extends BaseController
             'title' => 'Edit Data Surat Keluar',
             'content' => 'surat_keluar/edit',
             'validation' => \Config\Services::validation(),
-            'suratKeluar' => $suratKeluar
+            'suratKeluar' => $suratKeluar,
+            'uri' => $this->uri->getSegment(1)
 
         ];
 
@@ -227,7 +220,7 @@ class SuratKeluar extends BaseController
             unlink('upload/surat_keluar/' . $fileLama);
         }
 
-        $this->suratkeluarModel->save([
+        $this->suratKeluarModel->save([
             'id' => $id,
             'no_surat' => $this->request->getVar('no_surat'),
             'perihal' => $this->request->getVar('perihal'),

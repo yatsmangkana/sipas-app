@@ -6,10 +6,9 @@
             <div class="col s12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Some example text. Some example text.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+
+                        <h4 class="card-title">Test Date Time</h4><br>
+                        <h5>Current Time: <?= date('h:i:s A'); ?></h5>
                     </div>
                 </div>
             </div>
@@ -30,7 +29,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3><?= $sm_rows; ?></h3>
 
                             <p>Surat Masuk</p>
                         </div>
@@ -45,7 +44,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>45</h3>
+                            <h3><?= $sk_rows; ?></h3>
 
                             <p>Surat Keluar</p>
                         </div>
@@ -53,36 +52,6 @@
                             <i class="far fa-paper-plane"></i>
                         </div>
                         <a href="pages/surat_keluar.php" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>Kode Surat</p>
-                        </div>
-                        <div class="icon">
-                            <i class="far fa-bookmark"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>Pegawai</p>
-                        </div>
-                        <div class="icon">
-                            <i class="far fa-calendar"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

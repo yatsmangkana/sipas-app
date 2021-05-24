@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/SuratKeluar/update/<?= $suratKeluar['id']; ?>" method="post" enctype="multipart/form-data">
+                            <form action="/surat_keluar/update/<?= $suratKeluar['id']; ?>" method="post" enctype="multipart/form-data">
                                 <input type="hidden" class="form-control" name="fileLama" value="<?= $suratKeluar['files']; ?>">
                                 <?= csrf_field(); ?>
                                 <div class="row">

@@ -32,14 +32,16 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Dashboard::index');
-$routes->get('/surat_masuk', 'SuratMasuk::index');
-$routes->get('/surat_keluar', 'SuratKeluar::index');
+$routes->get('/surat_masuk', 'surat_masuk::index');
+$routes->get('/surat_keluar', 'surat_keluar::index');
+$routes->get('/laporan/laporan_surat_masuk', 'laporan::laporan_surat_masuk');
+$routes->get('/laporan/laporan_surat_keluar', 'laporan::laporan_surat_keluar');
 
-//$routes->get('/surat_masuk/detail/(:segment)', 'SuratMasuk::detail/$1');
-//$routes->get('/surat_masuk/create', 'SuratMasuk::create');
-//$routes->get('/surat_masuk/edit/(:num)', 'SuratMasuk::edit/$1');
-$routes->delete('/surat_masuk/(:num)', 'SuratMasuk::delete/$1');
-$routes->delete('/surat_keluar/(:num)', 'SuratKeluar::delete/$1');
+//$routes->get('/surat_masuk/detail/(:segment)', 'surat_masuk::detail/$1');
+//$routes->get('/surat_masuk/create', 'surat_masuk::create');
+//$routes->get('/surat_masuk/edit/(:segment)', 'surat_masuk::edit/$1');
+$routes->delete('/surat_masuk/(:num)', 'surat_masuk::delete/$1');
+$routes->delete('/surat_keluar/(:num)', 'surat_keluar::delete/$1');
 
 /*
  * --------------------------------------------------------------------

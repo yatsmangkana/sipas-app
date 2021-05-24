@@ -14,38 +14,35 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="/" class="nav-link active">
+                <li class="nav-item active">
+                    <a href="/" class="nav-link <?= ($uri == '') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item menu-open>">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                <li class="nav-item active">
+                    <a href="<?= base_url() ?>/surat_masuk" class="nav-link <?= ($uri == 'surat_masuk') ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-envelope"></i>
                         <p>
-                            Kelola Arsip
-                            <i class="fas fa-angle-left right"></i>
+                            Surat Masuk
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>/surat_masuk" class="nav-link">
-                                <i class="fas fa-angle-right nav-icon"></i>
-                                <p>Surat Masuk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>/surat_keluar" class="nav-link">
-                                <i class="fas fa-angle-right nav-icon"></i>
-                                <p>Surat Keluar</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
+                    <a href="<?= base_url() ?>/surat_keluar" class="nav-link <?= ($uri == 'surat_keluar') ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-paper-plane"></i>
+                        <p>
+                            Surat Keluar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item <?php if ($uri == 'laporan_surat_masuk') {
+                                        echo 'menu-open';
+                                    } else if ($uri == 'laporan_surat_keluar') {
+                                        echo 'menu-open';
+                                    } ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-print"></i>
                         <p>
@@ -55,13 +52,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="transaksi_surat_masuk.php" class="nav-link">
+                            <a href="<?= base_url() ?>/laporan/laporan_surat_masuk" class="nav-link <?= ($uri == 'laporan_surat_masuk') ? 'active' : '' ?>">
                                 <i class="fas fa-angle-right nav-icon"></i>
                                 <p>Surat Masuk</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="<?= base_url() ?>/laporan/laporan_surat_keluar" class="nav-link <?= ($uri == 'laporan_surat_keluar') ? 'active' : '' ?>">
                                 <i class="fas fa-angle-right nav-icon"></i>
                                 <p>Surat Keluar</p>
                             </a>

@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/SuratMasuk/save" method="post" enctype="multipart/form-data">
+                            <form action="/surat_masuk/save" method="post" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col">
